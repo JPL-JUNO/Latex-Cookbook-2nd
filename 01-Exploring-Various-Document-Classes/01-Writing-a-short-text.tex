@@ -1,0 +1,33 @@
+\documentclass[paper=a4, oneside, fontsize=11pt, parskip=full]{scrartcl}
+\begin{document}
+\tableofcontents
+
+\addsec{Document Class Set}
+We set options for specifying an A4 paper size with the \textbf{oneside} option for one-sided printing and a font size of 11 pt. Finally, we chose to have a full line between paragraphs in the output to distinguish paragraphs easily by adding the \textbf{parskip=full} option. The default setting is no space between paragraphs but a small indentation at the beginning of a paragraph.
+
+\section{section and addsec}
+While the \textbf{section} command starts numbered sections, we can have an unnumbered section by the starred \textbf{section*} version. However contrary to \textbf{section*}, the \textbf{addsec} command generates an entry in the table of contents.
+
+The empty line tells LaTeX to make a paragraph break.
+
+\begin{itemize}
+    \item a table of contents,
+    \item a bulleted list,
+    \item headings and some text and math in section,
+    \item referencing such as to section \ref{sec:maths} and equation (\ref{eq:integral}).
+\end{itemize}
+
+\section{Some maths, label and ref}\label{sec:maths}
+We use a \textbf{label} command to set an invisible anchor mark so that we could refer to it using its label name by the \textbf{ref} command and get the equation number in the output.
+
+It is a good practice to use prefixes to identify kinds of labels, such as \textit{eq:name} for equations, \textit{fig:name} for figures,\textit{ tab:name} for tables, and so on. Avoid special characters in names, such as accented characters.
+
+Why did we have to compile it twice? When you use the \textbf{label} command, LaTeX writes that position to the \textit{.aux} file. In the next compiler run, the \textbf{ref} command can read this and put the correct reference into the text.
+
+When we write a scientific or technical document, we usually include math formulas. To get a brief glimpse of the look of maths, we will look at an integral approximation of a function \( f(x) \) as a sum with weights \( w_i \):
+
+\begin{equation}
+    \label{eq:integral}
+    \int_a^b f(x)\, \mathrm{d}x \approx (b-a)\sum_{i=0}^{n }w_i f(x_i)
+\end{equation}
+\end{document}
